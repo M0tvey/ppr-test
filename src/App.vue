@@ -1,28 +1,26 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="page">
+    <Header />
+    
+    <main class="page_content">
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue';
+import axios from "axios";
+
+window.theMDB = {
+  baseUrl: "https://api.themoviedb.org/3/",
+  apiKey: "?api_key=1f1235ba541cacd1b6c3b44405095d2b",
+  lang: "&language=ru-RU"
+}
+axios.get(`${window.theMDB.baseUrl}configuration${window.theMDB.apiKey}`).then(config => window.theMDB.config = config.data);
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  components: { Header }
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

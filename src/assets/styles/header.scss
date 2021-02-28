@@ -1,0 +1,24 @@
+.header {
+  padding: 15px 0;
+  border-bottom: solid 5px $link-color;
+
+  &_logo {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    text-shadow: 2px 2px 7px #2b2b2b;
+    padding: 0 60px;
+
+    &_image {
+      max-height: 60px;
+    }
+
+    &_text {
+      margin: 0 0 0 30px;
+      font-size: 30px;
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+}

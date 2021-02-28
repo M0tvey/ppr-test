@@ -1,0 +1,63 @@
+body {
+  background-color: $body-background-color;
+  padding: 20px;
+  font: normal 16px/1.2em Arial;
+  color: $text-color;
+  min-width: min-content;
+}
+a {
+  color: $link-color;
+  transition: all .3s ease;
+
+  &:hover {
+    text-decoration: none;
+    color: lighten($link-color, 20%);
+  }
+}
+
+.page {
+  background-color: #4e4e4e;
+  box-shadow: 0 0 18px #464646;
+  display: grid;
+  max-width: 1000px;
+  margin: 0 auto;
+  grid-template-rows: min-content 1fr;
+  min-height: calc(100vh - 40px);
+
+  &_content {
+    padding: 35px 65px;
+  }
+}
+
+.preloader {
+  background-color: rgba(204, 204, 204, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include size(100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-dialog-centered {
+  max-width: min-content;
+}
+
+@media (max-width: 960px) {
+  .modal-dialog-centered {
+    max-width: 500px;
+
+    .modal_image {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .page {
+    &_content {
+      padding: 35px 20px;
+    }
+  }
+
+}

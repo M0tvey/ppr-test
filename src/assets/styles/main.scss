@@ -1,0 +1,127 @@
+.films {
+
+  &_filter {
+    margin-bottom: 50px;
+
+    &_type-video {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #d2d2d2;
+    
+      & > p {
+        margin: 0;
+      }
+
+        &_change {
+        position: relative;
+        border-radius: 30px;
+        background: $link-color;
+        @include size(30px, 70px);
+        cursor: pointer;
+        
+        &:after {
+          content: '';
+          position: absolute;
+          top: 4px;
+          @include size(22px);
+          left: 4px;
+          background-color: #fff;
+          border-radius: 15px;
+          transition: left .2s ease;
+        }
+      }
+
+      &.type {
+        
+        &-movie {
+          .movie {
+            color: $link-color;
+          }
+        }
+        
+        &-tv {
+          .films_filter_type-video_change:after {
+            left: calc(100% - 26px);
+          }
+
+          .tv {
+            color: $link-color;
+          }
+        }
+      }
+    }
+  }
+  &_item {
+    background-color: $content-background;
+    padding: 20px 0;
+    border-radius: 20px;
+    transition: all .3s ease;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px #3e3e3e, inset 0 0 0 $content-background;
+    min-height: 180px;
+
+    &:hover {
+      box-shadow:  3px 3px 5px #3e3e3e, inset 0 0 3px 3px lighten($link-color, 15%);
+    }
+
+    & + & {
+      margin-top: 30px;
+    }
+
+    &_index {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    &_image {
+      .no-image {
+        display: flex;
+        @include size(138px, 92px);
+        align-items: center;
+        margin: 0 auto;
+        background-color: darken(#656554, 18%)  ;
+        padding: 0 15px;
+      }
+    }
+
+    &_title {
+      text-align: center;
+      font-style: italic;
+      font-weight: bold;
+      letter-spacing: 1.4px;
+      margin: 10px 0 20px;
+    }
+
+    &_data {
+      font-size: .8em;
+      letter-spacing: 0.4px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .films {
+    &_filter {
+      &_year_wrap {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .films {
+    &_item {
+      &_image {
+        margin: 20px 0;
+      }
+    }
+  }
+}

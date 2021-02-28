@@ -1,0 +1,14 @@
+/*********************** mixins ***********************/
+@mixin size($height, $width: "") {
+  @if $width == "" {
+    $width: $height;
+  }
+  height: $height;
+  width: $width;
+}
+
+/*********************** variable ***********************/
+$body-background-color: #797979;
+$text-color: #000000;
+$link-color: rgb(202, 212, 61);
+$content-background: #d2d0d0;
